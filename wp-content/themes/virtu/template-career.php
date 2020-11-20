@@ -19,12 +19,13 @@ $careerPosts = get_posts([
         <?php the_breadcrumb(); ?>
     <div class="career__content">
     <?php
-      foreach ($careerPosts as $i => $careerPosts): ?>
+      foreach ($careerPosts as $i => $careerPosts):
+        $currentLink = get_permalink($careerPosts); ?>
         <div class="career_posts_data">
             <h3><?php the_field( 'career_posts_heading', $careerPosts ); ?></h3>
             <div class="career__content__div">
             <p><?php the_field( 'career_posts_additional_text', $careerPosts ); ?></p>
-                <a href="#">Czytaj więcej</a>
+                <a href="<?php echo $currentLink ?>">Czytaj więcej</a>
             </div>
         </div>
         <?php endforeach; ?>

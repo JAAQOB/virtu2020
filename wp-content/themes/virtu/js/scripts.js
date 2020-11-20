@@ -2,19 +2,18 @@
 
 	$(function () {
         /* SLIDERY */
-        if(document.querySelector('.homepage-top-slider')){
-            var homepageTopSlider = new Swiper('.homepage-top-slider .swiper-container', {
-                navigation: {
-                nextEl: '.homepage-top-slider .swiper-navigation__next',
-                prevEl: '.homepage-top-slider .swiper-navigation__prev',
-                },
-                pagination: {
-                el: '.homepage-top-slider .swiper-navigation__pagination'
-                },
-            });
-        }
-		$(document).ready(function () {
-		});
+            if(document.querySelector('.homepage-top-slider')){
+                var homepageTopSlider = new Swiper('.homepage-top-slider .swiper-container', {
+                    navigation: {
+                    nextEl: '.homepage-top-slider .swiper-navigation__next',
+                    prevEl: '.homepage-top-slider .swiper-navigation__prev',
+                    },
+                    pagination: {
+                    el: '.homepage-top-slider .swiper-navigation__pagination'
+                    },
+                });
+            }
+
         var lazyLoadFn = function () {
             $('.lazy').Lazy({
                 effect: 'fadeIn',

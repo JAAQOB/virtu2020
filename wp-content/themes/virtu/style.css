@@ -650,8 +650,108 @@ a:focus {
       position: absolute;
       left: 0;
       bottom: 5%; }
-    .career-template__contact .wpcf7-form-control-wrap {
-      background: transparent; }
+  .career-template .wpcf7-form-control-wrap {
+    background: transparent !important; }
+
+.single-career-template {
+  position: relative; }
+  .single-career-template .leaves-brands {
+    position: absolute;
+    right: 0;
+    top: -20%; }
+  .single-career-template .single-career {
+    background: #fafaf6;
+    padding: 40px 25px 20px;
+    margin: 36px 0 50px; }
+    .single-career-template .single-career h3 {
+      color: #623b29;
+      font-size: 28px;
+      line-height: 32px;
+      font-family: FiraSans-Bold;
+      margin-bottom: 32px; }
+    .single-career-template .single-career h4 {
+      color: #623b29;
+      font-size: 18px;
+      font-family: FiraSans-Bold;
+      margin-bottom: 12px; }
+    .single-career-template .single-career ul {
+      padding-inline-start: 0px; }
+      .single-career-template .single-career ul li {
+        margin-bottom: 28px;
+        color: #333333; }
+        .single-career-template .single-career ul li::before {
+          content: url("img/check.svg");
+          margin-right: 10px; }
+    .single-career-template .single-career__benefits {
+      background: #623b29;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      position: relative; }
+      .single-career-template .single-career__benefits .leaves-brands {
+        left: 0;
+        top: -20%; }
+      .single-career-template .single-career__benefits h3 {
+        text-align: center;
+        font-family: FiraSans-Bold;
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 45px; }
+      .single-career-template .single-career__benefits .heading-with-icon {
+        text-align: center;
+        color: #fff;
+        padding-bottom: 50px; }
+      .single-career-template .single-career__benefits .benefits_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .single-career-template .single-career__benefits .benefits_content__div {
+          display: flex;
+          flex-direction: column;
+          max-width: 146px;
+          text-align: center; }
+          .single-career-template .single-career__benefits .benefits_content__div p {
+            height: 38px;
+            color: #fff;
+            margin-top: 15px;
+            line-height: 26px; }
+      .single-career-template .single-career__benefits .container {
+        width: 100%; }
+    .single-career-template .single-career__send-cv {
+      background: #fafaf6;
+      padding: 50px 0;
+      position: relative; }
+      .single-career-template .single-career__send-cv .career-img-bg {
+        position: absolute;
+        right: 0;
+        top: -8%; }
+      .single-career-template .single-career__send-cv h3 {
+        font-family: FiraSans-Bold;
+        font-size: 24px;
+        color: #623b29;
+        margin-bottom: 10px; }
+      .single-career-template .single-career__send-cv p {
+        color: #8a8a8a;
+        line-height: 24px; }
+        .single-career-template .single-career__send-cv p a {
+          color: #e9501b; }
+      .single-career-template .single-career__send-cv h5 {
+        font-size: 16px;
+        color: #623b29;
+        margin: 16px 0 5px; }
+      .single-career-template .single-career__send-cv .contact-form {
+        width: 75%; }
+        .single-career-template .single-career__send-cv .contact-form .wpcf7-form-control-wrap {
+          background: transparent; }
+  .single-career-template .other_posts {
+    padding: 73px 0 50px; }
+    .single-career-template .other_posts h2 {
+      font-size: 36px;
+      font-family: FiraSans-Bold;
+      color: #623b29;
+      margin-bottom: 40px; }
+    .single-career-template .other_posts .btn {
+      width: 190px; }
 
 .awards-template {
   position: relative; }
@@ -697,6 +797,13 @@ a:focus {
       position: absolute;
       left: 0;
       bottom: 10%; }
+
+.news-blog {
+  position: relative; }
+  .news-blog .leaves-brands {
+    position: absolute;
+    right: 0;
+    top: -12%; }
 
 .footer-top {
   background: #613a29; }

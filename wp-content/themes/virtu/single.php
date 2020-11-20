@@ -2,10 +2,13 @@
 
 	<main role="main">
 	<!-- section -->
-	<section>
-
+	<section class="single-news">
+	<img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/about-us/leaves.png" alt="">
+  		<div class="container">
+			<h2 class="breadcrumbs__h2">Kariera</h2>
+			<?php the_breadcrumb(); ?>
+		</div>
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-
 		<!-- article -->
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -62,6 +65,5 @@
 	<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
