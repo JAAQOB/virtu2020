@@ -1,0 +1,108 @@
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: auto;
+    border-top: 4px solid #623b29;
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1156px;
+        margin: 0 auto;
+        &__logo{
+            margin-bottom: -20px;
+        }
+        &__menu{
+            display: flex;
+            align-items: center;
+            ul{
+                display: flex;
+                justify-content: space-between;
+                padding-inline-start: 0px;
+                font-family: FiraSans-Regular;
+                font-size: 15px;
+                font-weight: normal;
+                li{
+                    padding: 5px 12px;
+                }
+            }
+            .home-icon-a{
+                display: flex;
+            }
+            .menu-item{
+                position: relative;
+                a{
+                    color: #623b29;
+                }
+                &:hover{
+                    background: #ede7e5;
+                }
+                .sub-menu{
+                    display: none;
+                    position: absolute;
+                    top: 38px;
+                    left: 0;
+                    background-color: #ede7e5;
+                    padding: 10px 20px;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: -10px;
+                        left: 12px;
+                        width: 0;
+                        height: 0;
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        border-bottom: 10px solid #ede7e5
+                    }
+                }
+                &.pll-parent-menu-item{
+                    &:hover{
+                        .sub-menu{
+                            display: block;
+                            li{
+                                &:hover{
+                                    color: red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .search-icon{
+                margin-right: 25px;
+            }
+        }
+        &_homepage{
+            padding: 5px 12px;
+        }
+    }
+}
+.home{
+    .header{
+        background: rgba(0,0,0,0.6);
+        border-top: unset;
+        .nav{
+            &_homepage{
+                background: #ede7e5;
+                margin-right: 10px;
+            }
+            &__menu{
+                .menu-item{
+                    a{
+                        color: #fff;
+                    }
+                    &:hover{
+                        background: #ede7e5;
+                        a{
+                          color: #623b29;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

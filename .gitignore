@@ -1,0 +1,9 @@
+/wp-content/uploads
+/wp-content/updraft
+/wp-content/ai1wm-backups
+/tmp
+/wp-content/cache
+/ai1wm-backups
+wp-config.php
+apache-access.log
+apache-error.log

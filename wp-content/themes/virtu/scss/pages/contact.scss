@@ -1,0 +1,67 @@
+.contact-form-template{
+    margin-bottom: 0!important;
+    .row{
+        justify-content: space-between;
+    }
+    .leaves-brands{
+        position: absolute;
+        right: 0;
+        top: -25%;
+    }
+    &_cont{
+        &.contact-page{
+            margin-top: 36px;
+            .contact-form-template__div__data{
+                background: #fafaf6;
+                padding: 40px 30px;
+                h6{
+                    color: #8a8a8a;
+                    font-size: 16px;
+                    margin: 8px 0 16px;
+                    font-family: FiraSans-Regular;
+                    font-weight: normal;
+                }
+                span{
+                    display: block;
+                    margin-bottom: 8px;
+                    color: #333333;
+                }
+                a{
+                    &.contact-a-email{
+                        margin-top: 16px;
+                    }
+                }
+            }
+        }
+        .complaint__content{
+            margin: 50px 0;
+            h3{
+                color: #623b29;
+                margin-bottom: 16px;
+                font-family: FiraSans-Bold;
+                font-size: 24px;
+            }
+            p{
+                color: #252525;
+            }
+            a{
+                width: 190px;
+                margin: 24px 0 54px ;
+            }
+        }
+    }
+    .contact__map{
+        position: relative;
+        iframe{
+            width: 100%;
+        }
+    }
+    .rosemar-img{
+        bottom: 6%;
+    }
+    .garlic-img{
+        position: absolute;
+        top: -15%;
+        right: 0;
+    }
+}

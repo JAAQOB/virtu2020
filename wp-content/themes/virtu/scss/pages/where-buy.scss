@@ -1,0 +1,53 @@
+.where-buy-template{
+    position: relative;
+    .leaves-brands{
+        position: absolute;
+        right: 0;
+        top: -7%;
+    }
+    p{
+        line-height: 26px;
+        color: #333333;
+        margin: 26px 0 48px;
+    }
+    .where_buy_logos{
+        display: flex;
+        flex-wrap: wrap;
+        &__div{
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+    }
+    &__last-section{
+        .ctr{
+            display: flex;
+            justify-content: center;
+            height: 118px;
+            padding: 20px;
+            background: #fafaf6;
+            width: 718px;
+            margin: 0 auto 50px;
+            &__div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                a{
+                    color: #e9501b;
+                    font-family: FiraSans-Bold;
+                }
+                p{
+                    max-width: 200px;
+                    margin: auto 0 auto 26px;
+                }
+            }
+        }
+    }
+    .rosemar{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}

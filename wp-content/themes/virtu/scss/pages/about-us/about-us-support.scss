@@ -1,0 +1,29 @@
+.about-us-support{
+    background: #fafaf6;
+    height: 340px;
+    position: relative;
+    padding: 70px 0;
+    .leaves-about{
+        position: absolute;
+        bottom: -18%;
+    }
+    &__ctr{
+        display: flex;
+        justify-content: space-between;
+        .icon-section{
+            display: flex;
+            align-items: flex-start;
+            p{
+                max-width: 216px;
+                margin-left: 12px;
+                font-size: 14px;
+            }
+        }
+    }
+    h3{
+        color: #623b29;
+        margin-bottom: 43px;
+        font-family: FiraSans-Bold;
+        font-size: 24px;
+    }
+}

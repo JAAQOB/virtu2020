@@ -1,0 +1,36 @@
+.footer{
+ &-top{
+    background: #613a29;
+ }
+ &-bottom{
+     height: 78px;
+     &__span-text{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 78px;
+        &__div{
+            font-size: 14px;
+            font-family: FiraSans-Regular;
+            &:first-child{
+                color:#8a8a8a;
+            }
+            &:last-child{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                div{
+                    display: flex;
+                    align-items: center;
+                    &:first-child{
+                        margin-right: 40px;
+                    }
+                    span{
+                        margin-right: 16px;
+                    }
+                }
+            }
+        }
+     }
+ }
+}

@@ -1,0 +1,48 @@
+.about-us-awards{
+    position: relative;
+    margin-top: 83px;
+    .tomato-about{
+        position: absolute;
+        bottom: -18%;
+        right: 0;
+    }
+    &__ctr{
+        display: flex;
+        justify-content: space-between;
+        .icon-section{
+            display: flex;
+            align-items: center;
+            img{
+               margin-right: 30px;
+            }
+            &--data{
+                text-align: center;
+                h6{
+                    color: #623b29;
+                    font-size: 18px;
+                    line-height: 26px;
+                    font-family: FiraSans-SemiBold;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    h3{
+        color: #623b29;
+        margin-bottom: 43px;
+        font-family: FiraSans-Bold;
+        font-size: 24px;
+    }
+    .btn{
+        width: 195px;
+        margin: 60px auto;
+    }
+    h2{
+        color: #613a29;
+        font-size: 36px;
+        font-family: FiraSans-Bold;
+        margin-bottom: 62px;
+    }
+}

@@ -1,0 +1,32 @@
+.about-us-certificates{
+    .leaves-about{
+        position: absolute;
+        bottom: -18%;
+    }
+    &__ctr{
+        display: flex;
+        justify-content: space-between;
+        .icon-section{
+            p{
+                text-align: center;
+                font-size: 18px;
+                color: #623b29;
+                font-family: FiraSans-SemiBold;
+                margin-top: 30px;
+            }
+            &:hover p{
+                color: #e9501b;
+            }
+        }
+    }
+    h2{
+        color: #613a29;
+        font-size: 36px;
+        font-family: FiraSans-Bold;
+        margin-bottom: 62px;
+    }
+    a{
+        width: 193px;
+        margin: 40px auto 64px;
+    }
+}

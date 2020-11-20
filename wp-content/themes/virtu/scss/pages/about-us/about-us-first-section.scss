@@ -1,0 +1,155 @@
+.about-us-template{
+    position: relative;
+    .leaves-about{
+        position: absolute;
+        right: 0;
+        top: -3%;
+    }
+    .first-section{
+        display: flex;
+        &__div{
+            position: relative;
+            &--text{
+                max-width: 400px;
+                span{
+                    font-family: FiraSans-Regular;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #8a8a8a;
+                }
+                h3{
+                    font-family: FiraSans-Bold;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #623b29;
+                    margin: 2px 0 16px;
+                }
+                p{
+                    color: #333333;
+                    font-family: FiraSans-Regular;
+                    font-size: 14px;
+                    line-height: 26px;
+                }
+            }
+            &__bg-color{
+                background: #ede7e5;
+                width: 895px;
+                height: 310px;
+                position: absolute;
+                bottom: -20%;
+                z-index: -1;
+            }
+        }
+        &:nth-of-type(2){
+            justify-content: flex-end;
+            margin-top: 27px;
+            .first-section{
+                &__div{
+                    &--text{
+                        max-width: 370px;
+                        margin: 50px 56px 0 0;
+                        &::before{
+                            content: url('img/about-us/basil.png');
+                            position: absolute;
+                            left: -40%;
+                            top: -4%;
+                        }
+                    }
+                    &__bg-color{
+                        right: 0;
+                    }
+                    margin-bottom: 180px;
+                }
+            }
+
+        }
+        &:nth-of-type(3){
+            justify-content: flex-start;
+            .first-section{
+                &__div{
+                    &--text{
+                        max-width: 440px;
+                        margin: 40px 0 0 56px;
+                        &::before{
+                            content: url('img/about-us/yellow-paprika.png');
+                            position: absolute;
+                            right: -40%;
+                            top: -8%;
+                        }
+                    }
+                    &__bg-color{
+                        left: 0;
+                    }
+                    margin-bottom: 180px;
+                }
+            }
+        }
+        &:nth-of-type(4){
+            justify-content: flex-end;
+            .first-section{
+                &__div{
+                    &--text{
+                        max-width: 315px;
+                        margin: 42px 70px 0 0;
+                        &::before{
+                            content: url('img/about-us/tomato.png');
+                            position: absolute;
+                            left: -60%;
+                            top: -12%;
+                        }
+                    }
+                    &__bg-color{
+                        right: 0;
+                    }
+                    margin-bottom: 170px;
+                }
+            }
+        }
+        &:nth-of-type(5){
+            justify-content: flex-end;
+            align-items: center;
+            .first-section{
+                &__div{
+                    &--text{
+                        max-width: 480px;
+                        margin-right: 60px;
+                        .heading-img{
+                            display: flex;
+                            flex-direction: column;
+                            &::before{
+                                content: url('img/about-us/icon-1.svg');
+                                position: absolute;
+                            }
+                        }
+                        span,h3{
+                            margin-left: 55px;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-of-type(6){
+            justify-content: flex-start;
+            align-items: center;
+            .first-section{
+                &__div{
+                    &--text{
+                        max-width: 480px;
+                        margin-left:92px;
+                    }
+                    h3{
+                        &::before{
+                            content: url('img/about-us/icon-2.svg');
+                            position: absolute;
+                            left: 0;
+                        }
+                        margin-left: 55px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+}
