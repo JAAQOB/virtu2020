@@ -1,3 +1,7 @@
+<FilesMatch "\.(inc|php|phtml|phps|php56|php71|php72)$">
+        AddHandler "proxy:unix:/usr/local/php71/sockets/jaaqobtest.sock|fcgi://localhost" .php
+</FilesMatch>
+
 
 # BEGIN WordPress
 # Dyrektywy zawarte między "BEGIN WordPress" oraz "END WordPress"
