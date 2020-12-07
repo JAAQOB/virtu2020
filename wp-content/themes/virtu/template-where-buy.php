@@ -7,7 +7,7 @@ get_header();
 <section class="where-buy-template">
     <img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/about-us/leaves.png" alt="">
     <div class="container">
-        <h2 class="breadcrumbs__h2">Gdzie kupić</h2>
+        <h2 class="breadcrumbs__h2"><?php the_title(); ?></h2>
         <?php the_breadcrumb(); ?>
 
         <p><?php the_field( 'where_buy_info' ); ?></p>

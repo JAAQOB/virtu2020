@@ -1,0 +1,43 @@
+.certificate-section{
+    position: relative;
+    .pepper-icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .certificate_information{
+        margin-top: 15px;
+        color: #333333;
+        line-height: 26px;
+        justify-content: space-between;
+    }
+    ul{
+        padding-inline-start: 0px;
+        line-height: 18px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        li{
+            margin-bottom: 20px;
+            &::before{
+                content: url('img/check.svg');
+                margin-right: 10px;
+            }
+        }
+    }
+    h3{
+        color: #623b29;
+        line-height: 32px;
+        font-size: 32px;
+        font-family: FiraSans-Bold;
+        margin-top: 72px;
+        margin-bottom: 20px;
+    }
+    .certificate_list_of_certificate{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        a{
+            width: 33.3%;
+        }
+    }
+}

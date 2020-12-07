@@ -4,6 +4,12 @@
         position: absolute;
         right: 0;
         top: -3%;
+        @media (max-width:1400px){
+            top: -2%;
+        }
+        @media (max-width:991px){
+            display: none!important;
+        }
     }
     .our-brands{
         &__info-section{
@@ -11,6 +17,10 @@
             &__ctr{
                 display: flex;
                 align-items: center;
+                @media (max-width:991px){
+                    flex-direction: column-reverse;
+                    text-align: center;
+                }
             }
             &__div{
                 p{
@@ -43,12 +53,22 @@
             }
             &:nth-child(2n+2){
                 background: #fafaf6;
+                .our-brands__info-section__ctr{
+                    @media (max-width:991px){
+                        flex-direction: column;
+                    }
+                }
+
             }
         }
     }
     .brands_why_our_products{
         display: flex;
         justify-content: space-evenly;
+        @media (max-width:991px){
+            flex-direction: column;
+            text-align: center;
+        }
         &__div{
             display: flex;
             flex-direction: column;
@@ -59,25 +79,28 @@
                 font-family: FiraSans-SemiBold;
             }
         }
-        h2{
-            color: #613a29;
-            font-size: 32px;
-            font-family: FiraSans-Bold;
-            text-align: center;
-            margin-bottom: 55px;
-        }
 
+    }
+    .heading-with-icon{
+        color: #613a29;
+        font-size: 32px;
+        font-family: FiraSans-Bold;
+        text-align: left;
+        margin-bottom: 55px;
     }
     .our-products-brands{
         position: relative;
         a{
             width: 233px;
-            margin-bottom: 50px;
+            margin: 0 auto 50px;
         }
         .rosemar{
             position: absolute;
             left: 0;
             bottom: 0;
+            @media (max-width:991px){
+                display: none!important;
+            }
         }
     }
 }

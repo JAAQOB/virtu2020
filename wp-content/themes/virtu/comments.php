@@ -4,10 +4,11 @@
 </div>
 
 	<?php return; endif; ?>
-
+	<?php comment_form(); ?>
+	<?php echo do_shortcode('[wppr_avg_rating]'); ?>
+	<h6><?php comments_number(); ?></h6>
 <?php if (have_comments()) : ?>
 
-	<h2><?php comments_number(); ?></h2>
 
 	<ul>
 		<?php wp_list_comments('type=comment&callback=html5blankcomments'); // Custom callback in functions.php ?>
@@ -19,6 +20,5 @@
 
 <?php endif; ?>
 
-<?php comment_form(); ?>
 
 </div>

@@ -11,7 +11,7 @@
                                     <?php $homepege_top_slider_read_more = get_sub_field( 'homepege_top_slider_read_more' ); ?>
                                 </div>
                                 <div class="scroll-down"><a href="#scroll-down"><img class="lazy lazy-loading" data-src="<?php echo get_template_directory_uri(); ?>/img/slider/scroll-icon.svg" alt=""></a></div>
-                        </div>
+                            </div>
                     </div>
                 <?php endwhile; ?>
             </div>
@@ -45,14 +45,12 @@
             <!-- Add Arrows -->
             <div class="swiper-navigation">
                 <div class="swiper-navigation__wrapper">
-                    <div class="swiper-navigation__prev" role="button"></div>
-                    <div class="swiper-navigation__next" role="button"></div>
+                <div class="swiper-button-prev-custom"><i class="fas fa-angle-left"></i></div>
+                <div class="swiper-button-next-custom"><i class="fas fa-angle-right"></i></div>
                 </div>
-                <div class="scroll-down"><a href="#scroll-down"><img class="lazy lazy-loading" data-src="<?php echo get_template_directory_uri(); ?>/img/swiper/scroll-down.svg" alt=""></a></div>
-                <div class="swiper-navigation__pagination"></div>
             </div>
-            <!-- Add Pagination -->
-
+             <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
         </div>
      <?php endif; ?>
 </section>

@@ -15,7 +15,7 @@ $careerPosts = get_posts([
 <section class="career-template">
     <img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/about-us/leaves.png" alt="">
     <div class="container">
-        <h2 class="breadcrumbs__h2">Kariera</h2>
+        <h2 class="breadcrumbs__h2"><?php the_title(); ?></h2>
         <?php the_breadcrumb(); ?>
     <div class="career__content">
     <?php
@@ -39,7 +39,7 @@ $careerPosts = get_posts([
             <div class="ctr">
                 <div class="col-md-6 col-md-6-padding">
                     <p><?php the_field( 'career_page_contact_text' ); ?></p>
-                    <?php echo do_shortcode("[contact-form-7 id='5' title='Formularz 1']"); ?>
+                    <?php echo do_shortcode('[contact-form-7 id="541" title="Career"]'); ?>
                 </div>
                   <img class="lazy lazy-loading career-img-bg" data-src="<?php echo get_template_directory_uri(); ?>/img/icons/career-img-bg.png" alt="">
             </div>

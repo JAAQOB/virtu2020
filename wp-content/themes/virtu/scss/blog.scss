@@ -1,11 +1,259 @@
 .news-blog{
   position: relative;
+  .search{
+      display: none;
+  }
   .leaves-brands{
       position: absolute;
       right: 0;
-      top: -12%;
+      top: -8%;
+  }
+  .h3-blog-posts{
+      margin-bottom: 39px;
+      color: #623b29;
+      font-size: 24px;
   }
   &__loop{
-
+    article{
+        max-width: 33.3%;
+        width: 33.3%;
+        img{
+            width: 350px;
+            height: 220px;
+            object-fit: cover;
+        }
+        h2{
+            a{
+                color:#333333;
+                font-size: 20px;
+                font-family: FiraSans-SemiBold;
+                font-size: 20px;
+                line-height: 28px;
+            }
+            height: 56px;
+            margin: 2px 0 10px;
+        }
+        p{
+           color: #8b8b8b;
+           font-size: 14px;
+           line-height: 32px;
+        }
+        .loop-content-data{
+            padding: 25px;
+        }
+    }
+    .last-news{
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-top: 33px;
+        img{
+            width: 705px;
+            height: 400px;
+        }
+        .loop-content-data{
+            padding: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    }
   }
+}
+
+.single-news{
+    position: relative;
+    article{
+        margin-top: 50px;
+        .leaf-top{
+            position: absolute;
+            left: -15%;
+            top: 0;
+        }
+    }
+    .breadcrumbs--div{
+        margin-top: 130px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .breadcrumbs-in__h2{
+            margin-bottom: 8px;
+            font-family: FiraSans-Bold;
+            font-size: 32px;
+            color: #623b29;
+        }
+        .hover-back-link{
+            color: #e9501b;
+            cursor: pointer;
+            i{
+                margin-right: 8px;
+                font-size: 13px;
+            }
+            .returnpage{
+                color: #e9501b;
+                font-size: 14px;
+            }
+            &:hover, &:hover a{
+                color: #623b29;
+            }
+
+        }
+    }
+    .leaves-brands{
+        position: absolute;
+        right: 0;
+        top: -3%;
+        @media (max-width:1360px){
+            display: none!important;
+        }
+    }
+    .garlic-img{
+        position: absolute;
+        left: 0;
+        transform: rotate(180deg);
+    }
+    .text-with-image{
+        display: flex;
+        align-items: center;
+        min-height: 420px;
+        position: relative;
+        .wp-post-image{
+            top: 0;
+            position: absolute;
+            right: -30%;
+            width: 705px;
+            height: 420px;
+            object-fit: cover;
+        }
+    }
+    &__date-time{
+        display: flex;
+        align-items: center;
+        .date{
+            color: #8b8b8b;
+            margin-right: 16px;
+        }
+        a{
+            color: #8b8b8b;
+            padding: 5px 10px;
+            border: 1px solid #e2d6c8;
+            border-radius: 18px;
+            font-size: 12px;
+            &:hover{
+                border: 1px solid #e9501b;
+                color: #e9501b;
+            }
+        }
+    }
+    h1{
+        margin: 8px 0 16px;
+        a{
+            color: #623b29;
+            font-family: FiraSans-Bold;
+            font-size: 28px;
+        }
+    }
+    p{
+        color: #333333;
+        line-height: 26px;
+        text-align: justify;
+    }
+    .text-under-image{
+        margin: 28px 0;
+    }
+    .heading-under-image{
+        font-size: 24px;
+        color: #623b29;
+        font-family: FiraSans-Bold;
+        margin-bottom: 16px;
+        &__video{
+            margin-top: 60px;
+            text-align: center;
+            font-size: 28px;
+        }
+        &__gallery{
+            margin: 60px 0 40px;
+            color: #613a29;
+            font-size: 28px;
+        }
+        &__other-posts{
+            font-size: 36px;
+            margin: 83px 0 42px;
+        }
+    }
+    .news-blog-list{
+        padding-inline-start: 10px;
+        li{
+            &::before{
+                content: url('img/check.svg');
+                margin-right: 10px;
+            }
+            &:first-child{
+                margin-top: 24px;
+            }
+            margin-bottom: 24px;
+        }
+    }
+    .news_video{
+        display: flex;
+        justify-content: center;
+    }
+    .news_gallery{
+        display: flex;
+        flex-wrap: wrap;
+        img{
+            max-width: 255px;
+            margin-bottom: 30px;
+            margin-right: 30px;
+            &:nth-child(4n + 0){
+                margin-right: 0px;
+            }
+        }
+    }
+    .european_funds_items{
+        h4{
+            color: #808080;
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 18px;
+            font-family: FiraSans-Regular;
+            font-weight: normal;
+        }
+        p{
+          color: #333333;
+        }
+    }
+    .eu-projects{
+        margin-bottom: 30px;
+        margin-top: 10px;
+        display: block;
+    }
+    .european_funds_icons{
+        display: flex;
+        align-items: center;
+        margin-top: 55px;
+        @media(max-width:991px){
+            flex-wrap: wrap;
+        }
+        a{
+            width: 236px;
+            background: #e9501b;
+            border: 1px solid #e9501b;
+            color: #fff;
+            font-size: 14px;
+            &:hover{
+                background: transparent;
+                color: #e9501b;
+            }
+        }
+        img{
+            margin-right: 70px;
+            @media(max-width:991px){
+                margin-right: 30px;
+                margin-bottom: 20px;
+            }
+        }
+
+    }
 }

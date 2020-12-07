@@ -1,0 +1,340 @@
+.recipes-template{
+	position: relative;
+	.pepper-icon{
+		position: absolute;
+		right: 0;
+		top: -15%;
+	}
+	&___ctr{
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 75px;
+		.recipes__content{
+			.thumb-item-wrapper{
+				width: 350px;
+				height: 360px;
+				img{
+					object-fit: cover;
+					width: 350px;
+					height: 360px;
+				}
+			}
+			h3{
+				position: absolute;
+				bottom: 15%;
+				left: 5%;
+				font-size: 28px;
+				line-height: 36px;
+				font-family: FiraSans-Bold;
+				max-width: 60%;
+			}
+		}
+	}
+}
+.single-recipes-template{
+	position: relative;
+	.leaves-brands{
+		position: absolute;
+		right: 0;
+		top: -5%;
+	}
+	.tomato{
+		position: absolute;
+		right: 0%;
+		top: 50%;
+	}
+	.comment-form textarea{
+		padding-top: 0;
+	}
+	.single-recipes{
+		margin-top: 20px;
+		&__top{
+			display: flex;
+			align-items: center;
+				.short-description{
+					padding-left: 30px;
+					padding-right: 15px;
+					&__h3{
+						font-size: 24px;
+						font-family: FiraSans-Bold;
+						margin: 8px 0 12px;
+						color: #623b29;
+					}
+					&__p{
+						font-size: 14px;
+						line-height: 26px;
+						color: #333333;
+					}
+				}
+				.taxonomies-div{
+					background: #fafaf6;
+					height: 434px;
+					max-width: 170px;
+				}
+				.short-description{
+					max-width: 750px;
+				}
+				.galery-image{
+					max-width: 670px;
+				}
+		}
+		&__more-info{
+			.col-md-5{
+				max-width: 33%;
+			}
+			&__recipe-information{
+				.recipe-information--content{
+					padding: 30px 0;
+					margin: 14px 0 30px;
+					position: relative;
+					&__bg{
+						background: #fafaf6;
+						position: absolute;
+						left: -31%;
+						top: 0;
+						height: 100%;
+						width: calc((100vw - 954px)/2 + 1052px);
+						z-index: -2;
+					}
+				}
+				h3{
+					font-size: 24px;
+					color: #623b29;
+				}
+				p{
+					color: #333333;
+					font-size: 14px;
+					line-height: 26px;
+				}
+				h5{
+					color: #623b29;
+					font-size: 16px;
+					font-family: FiraSans-SemiBold;
+					margin: 15px 0;
+				}
+				ul{
+					padding-inline-start: 0px;
+					li{
+						margin-bottom: 16px;
+						color: #333333;
+						&::before{
+							content: url('img/check.svg');
+							margin-right: 10px;
+						}
+					}
+				}
+				.main_recipe{
+					ul{
+						padding-inline-start: 30px;
+						li{
+							&::before{
+								display: none;
+							}
+						}
+					}
+					p{
+						position: relative;
+						display: flex;
+						color: #623b29;
+						font-family: FiraSans-Medium;
+						margin-bottom: 15px;
+						font-size: 16px;
+						&::before{
+							content: attr(data-id);
+							margin-right: .5em;
+							background: #623b29;
+							border-radius: 100%;
+							width: 26px;
+							height: 26px;
+							color: #fff;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							left: -9%;
+							position: absolute;
+						}
+					}
+				}
+				&.col-md-7{
+					margin-left: auto;
+					max-width: 530px;
+				}
+			}
+			&__list-info{
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 28px;
+				position: relative;
+				&::after{
+					content: '';
+					position: absolute;
+					bottom: -9px;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background: #ede7e5;
+					cursor: pointer;
+				}
+				h4{
+					font-size: 16px;
+					color: #623b29;
+					line-height: 30px;
+					margin-top: 40px;
+				}
+			}
+			.form-group{
+				position: relative;
+				label{
+					cursor: pointer;
+				}
+				&__items{
+					display: flex;
+					justify-content: space-between;
+					margin-bottom: 12px;
+				}
+				.form-checkbox{
+					position: absolute;
+					opacity:0;
+
+					& + span {
+						position: relative;
+						cursor: pointer;
+						color: #8b8b8b;
+						font-size: 12px;
+						padding: 0;
+					  }
+
+					& + span:before {
+						content: '';
+						margin-right: 10px;
+						display: inline-block;
+						vertical-align: text-top;
+						width: 18px;
+						height: 18px;
+						border: solid 1px #623b29;
+					}
+					&:checked + span:before {
+						background: #f2f2f2;
+					}
+					&:checked + span:after {
+						content: '';
+						position: absolute;
+						left: 5px;
+						top: 9px;
+						background: #623b29;
+						width: 2px;
+						height: 2px;
+						box-shadow:
+						  2px 0 0 #623b29,
+						  4px 0 0 #623b29,
+						  4px -2px 0#623b29,
+						  4px -4px 0 #623b29,
+						  4px -6px 0 #623b29,
+						  4px -8px 0 #623b29;
+						transform: rotate(45deg);
+					  }
+
+				}
+			}
+		}
+		.heading-blog{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			&__icons{
+				display: flex;
+				a{
+					margin-left: 12px;
+				}
+				div{
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	.comments-template--ctr{
+		position: relative;
+	.plate-image{
+		position: absolute;
+		top: -25%;
+		left: 0;
+	}
+}
+	.comments-template__div{
+		max-width: 600px;
+		margin: 0 auto;
+		.comment-form-cookies-consent{
+			display: none;
+		}
+		.form-submit{
+			text-align: right;
+			margin: 35px 0 55px;
+			.submit{
+				border: solid 1px #e9501b;
+				background-color: #e9501b;
+				font-size: 16px;
+				font-family: FiraSans-Bold;
+				color: #fff;
+				max-width:210px;
+				height: 54px;
+				width: 100%;
+			}
+		}
+		.commentmetadata{
+			display: flex;
+			  flex-direction: column;
+			  margin-right: 20px;
+			a{
+				color: #8a8a8a;
+				font-size: 12px;
+				margin-top: 5px;
+			}
+			.fn{
+				color: #623b29;
+				font-size: 14px;
+				font-family: FiraSans-SemiBold;
+				font-style: normal;
+			}
+		}
+		.comment-reply-title{
+			color: #623b29;
+			font-size: 24px;
+			font-family: FiraSans-Bold;
+			margin: 60px 0 30px
+		}
+		.comments{
+			ul{
+				padding-inline-start: 0px;
+			}
+		}
+		.comment-respond{
+			position: relative;
+		}
+		.comment-form{
+			.wppcr_rating{
+				position: absolute;
+				top: 20%;
+				right: 0;
+				z-index: 2;
+				legend{
+					color: #623b29;
+					font-size: 14px;
+					font-family: FiraSans-Bold;
+				}
+			}
+		}
+		.comment-body{
+			display: flex;
+			.comment-text{
+				p{
+					max-width: 445px;
+					font-size: 14px;
+					color: #252525;
+					line-height: 26px;
+					margin-bottom: 26px;
+				}
+			}
+		}
+	}
+
+}

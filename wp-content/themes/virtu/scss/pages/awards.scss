@@ -4,6 +4,12 @@
         position: absolute;
         right: 0;
         top: -2%;
+        @media(max-width:1400px){
+            top: -1%;
+        }
+        @media (max-width:991px){
+            display: none!important;
+        }
     }
     .awards-content{
         position: relative;
@@ -11,21 +17,38 @@
             display: flex;
             align-items: center;
             height: 260px;
+            @media(max-width:767px){
+                flex-direction: column;
+                height: auto;
+                padding: 50px 0;
+            }
         }
         &__div{
             &--data{
                 margin-left: 80px;
                 width: 80%;
+                @media(max-width:767px){
+                    width: 95%;
+                    margin: 0 auto;
+                }
                 p{
                     max-width: 90%;
                     color: #333333;
                     line-height: 26px;
+                    @media(max-width:767px){
+                        max-width: 100%;
+                        text-align: justify;
+                    }
                 }
                 h3{
                     color: #623b29;
                     font-size: 24px;
                     font-family: FiraSans-Bold;
                     margin-bottom: 12px;
+                    @media(max-width:767px){
+                        margin-top: 20px;
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -34,6 +57,10 @@
             .ctr{
                 flex-direction: row-reverse;
                 justify-content: flex-end;
+                @media(max-width:767px){
+                    flex-direction: column;
+                    height: auto;
+                }
             }
             .awards-content__div{
                 &--data{
@@ -46,16 +73,32 @@
             left: 0;
             bottom: -25%;
             z-index: 1;
+            @media (max-width:1200px){
+                left: -3%;
+                bottom: -37%;
+            }
+            @media (max-width:991px){
+                display: none!important;
+            }
         }
         .garlic-middle{
             position: absolute;
             right: 0;
             bottom: -22%;
+            @media (max-width:991px){
+                display: none!important;
+            }
         }
         .rosemar-last{
             position: absolute;
             left: 0;
             bottom: 10%;
+            @media (max-width:1400px){
+                bottom: 0%;
+            }
+            @media (max-width:1069px){
+                display: none!important;
+            }
         }
     }
 }

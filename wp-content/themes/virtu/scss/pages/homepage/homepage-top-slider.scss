@@ -1,5 +1,5 @@
 .homepage-top-slider{
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     position: relative;
@@ -36,6 +36,9 @@
                     line-height: 54px;
                     color: #FFFFFF;
                     text-align: left;
+                    @media (max-width:1300px){
+                        font-size: 36px;
+                    }
                 }
             }
             .scroll-down{
@@ -76,7 +79,66 @@
                 justify-content: space-between;
                 z-index: 1;
                 width: 60%;
+                @media (max-width:1700px){
+                    width: 70%;
+                }
+                @media (max-width:1500px){
+                    width: 80%;
+                }
+                @media (max-width:1400px){
+                    width: 95%;
+                }
             }
         }
+        .swiper-pagination-bullets{
+            position: absolute;
+            bottom: 14%;
+        }
+        .swiper-pagination-bullet{
+            border: 1px solid #fff;
+            background: transparent;
+            border-radius: 0;
+        }
+        .swiper-pagination-bullet-active{
+            background: #fff;
+            width: 9px;
+            height: 9px;
+        }
+		.swiper-button-prev-custom{
+                display: block;
+                margin-top: 0;
+                text-align: center;
+                background-image: none;
+            i{
+                font-size: 36px;
+                position: absolute;
+                top: 45%;
+                z-index: 10;
+                cursor: pointer;
+                left: 2%;
+                color: #fff;
+                &:hover{
+                    color: #623b29;
+                }
+            }
+        }
+        .swiper-button-next-custom{
+            display: block;
+            margin-top: 0;
+            text-align: center;
+            background-image: none;
+        i{
+            font-size: 36px;
+            position: absolute;
+            top: 45%;
+            z-index: 10;
+            cursor: pointer;
+            right: 2%;
+            color: #fff;
+            &:hover{
+                color: #623b29;
+            }
+        }
+    }
     }
 }

@@ -7,11 +7,14 @@
   		<div class="container">
 			<h2 class="breadcrumbs__h2">Aktualności</h2>
 			<?php the_breadcrumb(); ?>
+			<?php get_sidebar();
 
+
+			?>
+
+		</div>
 			<div class="news-blog__loop">
-				<div class="row">
-					<?php get_template_part('loop'); ?>
-				</div>
+				<?php get_template_part('loop'); ?>
 			</div>
 			<?php get_template_part('pagination'); ?>
 		</div>
@@ -20,6 +23,5 @@
 		<!-- /section -->
 	</main>
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

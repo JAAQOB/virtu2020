@@ -6,8 +6,15 @@
     .leaves-brands{
         position: absolute;
         right: 0;
-        top: -25%;
+        top: -7%;
+        @media (max-width:1400px){
+            top: -5%;
+        }
+        @media (max-width:991px){
+            display: none!important;
+        }
     }
+
     &_cont{
         &.contact-page{
             margin-top: 36px;
@@ -63,5 +70,8 @@
         position: absolute;
         top: -15%;
         right: 0;
+    }
+    &__div{
+        margin-bottom: 35px;
     }
 }

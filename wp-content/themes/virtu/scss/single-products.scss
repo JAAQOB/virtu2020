@@ -1,0 +1,140 @@
+.single-product-template{
+	position: relative;
+	.pepper-image{
+		position: absolute;
+		right: 0;
+		top: -5%;
+	}
+	p{
+		color: #333333;
+		line-height: 26px;
+	}
+	.single-product{
+		&__top{
+			display: flex;
+			margin-top: 35px;
+			.short-description{
+				padding-left: 30px;
+				padding-right: 15px;
+				&__p{
+					margin: 17px 0 21px;
+					line-height: 26px;
+					font-size: 14px;
+					color: #333333;
+				}
+				&__h3{
+					color: #623b29;
+					font-size: 24px;
+					font-family: FiraSans-Bold;
+				}
+			}
+		}
+		&__more-info{
+			display: flex;
+		}
+		table{
+			td, th {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 9px;
+			  }
+			  th{
+				  color: #623b29;
+				  padding: 17px 10px 17px 9px;
+			  }
+		}
+		.products_table_headings__h3{
+			color: #623b29;
+			font-size: 24px;
+			margin: 50px 0 30px;
+			font-family: FiraSans-Bold;
+		}
+		.swiper-container{
+			.swiper-wrapper{
+				text-align: center;
+			}
+		}
+		.swiper-navigation{
+			&__prev{
+				svg{
+					font-size: 14px;
+					position: absolute;
+					bottom: -5%;
+					z-index: 10;
+					cursor: pointer;
+					left: 0%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+			&__next{
+				svg{
+					font-size: 14px;
+					position: absolute;
+					bottom: -5%;
+					z-index: 10;
+					cursor: pointer;
+					left: 6%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+			&.swiper-button-disabled{
+				svg{
+					path{
+						fill:#F8CABA;
+					}
+				}
+			}
+		}
+		&__dark-section{
+			background: #623b29;
+			padding-top: 50px;
+			margin: 60px 0;
+			position: relative;
+			.leaf-image{
+				position: absolute;
+				left: 0;
+				top: -45%;
+			}
+			&__ctr{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				width: calc(25%);
+				margin-bottom: 50px;
+				p{
+					color: #fff;
+					font-family: FiraSans-Medium;
+					margin-top: 8px;
+				}
+			}
+		}
+		&__awards{
+			background: #fafaf6;
+			padding: 51px 0 61px;
+			h2{
+				color: #623b29;
+				line-height: 32px;
+				font-size: 24px;
+				font-family: FiraSans-Bold;
+				margin-bottom: 40px;
+			}
+		}
+		&__where-buy{
+			margin-top: 77px;
+		}
+		.products__short-description{
+			display: flex;
+			justify-content: space-between;
+			.heading-blog__icons{
+				display: flex;
+				#fb-share-button{
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+.contact-report-form-template{
+    position: relative;
+    .leaves-brands{
+        position: absolute;
+        right: 0;
+        top: -15%;
+        @media (max-width:1360px){
+            top: -9%;
+        }
+        @media (max-width:767px){
+            display: none!important;
+        }
+    }
+    .rosemar{
+        position: absolute;
+        left: 0;
+        bottom: 0%;
+        @media (max-width:767px){
+            display: none!important;
+        }
+    }
+    &_cont{
+        display: flex;
+        justify-content: center;
+    }
+    &__div{
+        max-width: 580px;
+        .contact-form{
+            margin-top: 30px;
+        }
+        .wpcf7-form{
+            select{
+                &.wpcf7-form-control{
+                    font-size: 16px;
+                    padding-bottom: 10px;
+                }
+            }
+            .contact-message{
+                overflow: auto;
+                textarea.wpcf7-form-control{
+                    margin-top: 20px;
+                    height: 40px;
+                    overflow: auto;
+                    padding-top: 18px;
+                }
+            }
+            .label-contact-message{
+                top: 30px;
+           }
+           .form-group.active > .label.label-contact-message{
+            top: 0px;
+           }
+        }
+        .contact-btn{
+            display: flex;
+            input{
+                border: solid 1px #eb4f00;
+                background-color: #e9501b;
+                width: 203px;
+                height: 54px;
+                color: #fff;
+                font-family: FiraSans-Bold;
+                font-size: 16px;
+                margin-left: auto;
+                margin-top: 30px;
+            }
+        }
+    }
+}

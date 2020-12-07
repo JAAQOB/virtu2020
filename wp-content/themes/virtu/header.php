@@ -42,7 +42,7 @@
 <body <?php body_class(); ?> id="scroll-top">
 
 <!-- header -->
-<header class="header clear" role="banner">
+<header class="header clear desktop-menu" role="banner">
 
     <!-- nav -->
         <nav class="nav" role="navigation">
@@ -55,10 +55,30 @@
                  <a class="home-icon-a" href="<?php echo home_url(); ?>">
                    <img class="lazy lazy-loading search-icon" data-src="<?php echo get_template_directory_uri(); ?>/img/menu/search.svg" alt="">
                  </a>
-                 <a class="home-icon-a" href="<?php echo home_url(); ?>">
+                 <a class="home-icon-a" href="/projekty-ue/">
                    <img class="lazy lazy-loading eu-icon" data-src="<?php echo get_template_directory_uri(); ?>/img/menu/ue-copy.jpg" alt="">
                  </a>
             </div>
         </nav>
         <!-- /nav -->
+</header>
+
+
+<header class="header clear mobile-menu" role="banner">
+
+<!-- nav -->
+<nav class="top-nav" id="top-nav">
+<a href="<?php echo home_url(); ?>"><img class="lazy lazy-loading nav__logo" data-src="<?php echo get_template_directory_uri(); ?>/img/menu/logo.png" alt=""></a>
+    <div class="icons-menu">
+        <a class="home-icon-a" href="/projekty-ue/">
+            <img class="lazy lazy-loading eu-icon" data-src="<?php echo get_template_directory_uri(); ?>/img/menu/ue-copy.jpg" alt="">
+        </a>
+        <a class="home-icon-a" href="<?php echo home_url(); ?>">
+            <img class="lazy lazy-loading search-icon" data-src="<?php echo get_template_directory_uri(); ?>/img/menu/search-dark.svg" alt="">
+        </a>
+    </div>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <?php html5blank_nav_mobile(); ?>
+ </nav>
 </header>

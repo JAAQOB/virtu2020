@@ -2,12 +2,24 @@
 <footer class="footer" role="contentinfo">
     <div class="footer-top">
         <div class="container">
-            <div class="footer-col">
-                <img src="/wp-content/uploads/2020/07/RumianaHouseII-Logo-1.png" alt="">
+            <div class="footer-top__ctr">
+                <div class="footer-col">
+                    <div class="product-menu"></div>
+                </div>
+                <div class="footer-col">
+                    <img class="lazy lazy-loading " data-src="<?php echo get_template_directory_uri(); ?>/img/slaskie.png" alt="">
+                    <img class="lazy lazy-loading " data-src="<?php echo get_template_directory_uri(); ?>/img/program-regionalny.png" alt="">
+                    <img class="lazy lazy-loading " data-src="<?php echo get_template_directory_uri(); ?>/img/unia-europejska.png" alt="">
+                </div>
             </div>
-            <div class="footer-col">
-                <div class="footer-menu">
-                    <?php html5blank_nav(); ?>
+        </div>
+        <div class="container">
+            <div class="footer-menu footer-menu__div">
+                <?php html5blank_nav_footer(); ?>
+                <div class="social-icons">
+                    <span>Bądź na bieżąco</span>
+                        <a href="https://www.facebook.com/virtuozismaku/" target="_blank"><img class="lazy lazy-loading" data-src="<?php echo get_template_directory_uri(); ?>/img/social/facebook-white.svg" alt=""></a>
+                        <a href="https://www.instagram.com/virtuozi_smaku/" target="_blank"><img class="lazy lazy-loading" data-src="<?php echo get_template_directory_uri(); ?>/img/social/instagram-white.svg" alt=""></a>
                 </div>
             </div>
         </div>
@@ -32,6 +44,9 @@
 </footer><!-- #colophon -->
 
 <?php wp_footer(); ?>
+<?php if (!defined('IS_GOOGLE_SPEED')): ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"/>
+<?php endif; ?>
 
 <script>
     window.addEventListener('load', (event) => {

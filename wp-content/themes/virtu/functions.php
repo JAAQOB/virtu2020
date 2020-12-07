@@ -83,6 +83,24 @@ function html5blank_nav()
             'walker' => ''
         )
     );
+
+}
+function html5blank_nav_footer()
+{
+    wp_nav_menu([
+        'theme_location' => 'footer-menu',
+        'menu_class' => 'footer-menu',
+        'container' => 'ul'
+    ]);
+}
+
+function html5blank_nav_mobile()
+{
+    wp_nav_menu([
+        'theme_location' => 'mobile-menu',
+        'menu_class' => 'mobile-menu menu',
+        'container' => 'ul'
+    ]);
 }
 
 
@@ -92,13 +110,17 @@ function html5blank_header_scripts()
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
         wp_deregister_script('jquery-migrate');
-        wp_deregister_script('jquery');
         wp_register_script('jquery-new', '/wp-includes/js/jquery/jquery.js', false, null, true);
         wp_register_script('jquery-migrate', '/wp-includes/js/jquery/jquery-migrate.min.js', false, null, true);
         wp_enqueue_script('jquery-new');
         wp_enqueue_script('jquery-migrate');
         wp_enqueue_script('swiper', get_template_directory_uri() . '/js/swiper.min.js', ['jquery-new'], false, true);
         wp_enqueue_script('lazy.load', get_template_directory_uri() . '/js/lib/jquery.lazy-master/jquery.lazy.min.js', ['jquery-new'], false, true);
+
+        wp_enqueue_script( 'ajax-navigation', get_template_directory_uri() . '/js/ajax-navigation.js', array('jquery'), '0.1', true);
+        wp_localize_script('ajax-navigation', 'ajaxvariables', array(
+            'ajaxurl' => admin_url('admin-ajax.php')
+        ));
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery-new'), '1.0.0', true); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
@@ -136,7 +158,9 @@ function register_html5_menu()
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'extra-menu' => __('Extra Menu', 'html5blank'), // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu' => __('Footer Menu', 'html5blank'),
+        'mobile-menu' => __('Mobile Menu', 'html5blank'),
     ));
 }
 
@@ -258,7 +282,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('Read More', 'html5blank') . '></a>';
 }
 
 // Remove Admin bar
@@ -308,35 +332,30 @@ function html5blankcomments($comment, $args, $depth)
         $tag = 'div';
         $add_below = 'comment';
     } else {
-        $tag = 'li';
+        $tag = 'li ';
         $add_below = 'div-comment';
     }
     ?>
     <!-- heads up: starting < for the html tag (li or div) in the next line: -->
-    <?php echo $tag ?><?php comment_class(empty($args['has_children']) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>
+    <<?php echo $tag ?><?php comment_class(empty($args['has_children']) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
     <?php if ('div' != $args['style']) : ?>
     <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
 <?php endif; ?>
-    <div class="comment-author vcard">
-        <?php if ($args['avatar_size'] != 0) echo get_avatar($comment, $args['180']); ?>
-        <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
-    </div>
     <?php if ($comment->comment_approved == '0') : ?>
     <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
     <br/>
 <?php endif; ?>
 
-    <div class="comment-meta commentmetadata"><a
-                href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>">
+    <div class="comment-meta commentmetadata">
+    <a href="<?php echo htmlspecialchars(get_comment_link($comment->comment_ID)) ?>">
             <?php
-            printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'), '  ', '');
+            printf(__('%1$s'), get_comment_date(),
+                get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'), '  ', '');
         ?>
+        <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
     </div>
-
-    <?php comment_text() ?>
-
-    <div class="reply">
-        <?php comment_reply_link(array_merge($args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+    <div class="comment-text">
+         <?php comment_text() ?>
     </div>
     <?php if ('div' != $args['style']) : ?>
     </div>
@@ -515,18 +534,8 @@ function the_breadcrumb() {
         echo '</a>' . $sep;
 
 	// Check if the current page is a category, an archive or a single page. If so show the category or archive name.
-        if (is_category() || is_single() ){
-            the_category('title_li=');
-        } elseif (is_archive() || is_single()){
-            if ( is_day() ) {
-                printf( __( '%s', 'text_domain' ), get_the_date() );
-            } elseif ( is_month() ) {
-                printf( __( '%s', 'text_domain' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'text_domain' ) ) );
-            } elseif ( is_year() ) {
-                printf( __( '%s', 'text_domain' ), get_the_date( _x( 'Y', 'yearly archives date format', 'text_domain' ) ) );
-            } else {
-                _e( 'Blog Archives', 'text_domain' );
-            }
+        if (is_archive() || is_single() ){
+            echo "Aktualności";
         }
 
 	// If the current page is a single post, show its title with the separator
@@ -554,4 +563,184 @@ function the_breadcrumb() {
 
         echo '</div>';
     }
+}
+
+
+function latest_post($atts = []) {
+
+    $atts = array_change_key_case((array)$atts, CASE_LOWER);
+    $wporg_atts = shortcode_atts([
+                                   'current-post' => -1,
+                                 ], $atts);
+   $args = array(
+       'posts_per_page' => 3,
+       'offset' => 0,
+       'orderby' => 'post_date',
+       'order' => 'DESC',
+       'post_type' => 'post',
+       'post_status' => 'publish',
+       'post__not_in' => [$post->ID],
+   );
+   ?>
+		<div class="other-posts row desktop-flex">
+			<?php
+			$query = new WP_Query($args);
+			if ($query->have_posts()) :
+			while ($query->have_posts()) : $query->the_post(); ?>
+				<div class="other-posts-ctr">
+				    <div class="post-thumbnail">
+				        <a class="title-blog-posts" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full', array('class' => 'card-img-top')); ?></a>
+				    </div>
+				    <div class="entry-content">
+						<span class="date"><?php the_time('F j Y'); ?></span>
+						<a class="title-blog-posts" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				        <p><?php the_field( 'news_lead' ); ?></p>
+				        <a class="read-more-link-blog" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">Czytaj więcej</a>
+				    </div>
+				</div>
+			<?php
+            endwhile;
+            wp_reset_postdata();
+			endif; ?>
+
+		</div>
+<?php
+}
+
+add_shortcode('lastest-post', 'latest_post');
+
+
+function ia_comment_form_text ($fields) {
+    $fields['title_reply'] = 'Oceń przepis i podziel się swoją opinią';
+    $fields['comment_notes_before'] = '<p class="comment-notes">'. __( '', 'my-text-domain' ).'</p>';
+    $fields['comment_notes_before'] = '<p class="comment-notes">'. __( '', 'my-text-domain' ).'</p>';
+    $fields['comment_field'] = '<p class="comment-form-comment form-group"><span class="wpcf7-form-control-wrap contact-message"><textarea class="form-control input-lg" name="comment" cols="45" rows="8" aria-required="true"></textarea></span><label class="label">' . _x( 'Treść komentarza (opcjonalnie)', 'noun' ) . '</label></p>';
+
+       return $fields;
+   }
+   add_filter('comment_form_defaults','ia_comment_form_text');
+
+
+   function modify_comment_form_fields($fields){
+        $fields['author'] = '<p class="comment-form-author form-group">' . '<span class="wpcf7-form-control-wrap contact-name"><input class="form-control input-lg" id="author" name="author" type="text" value="' .
+                    esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></span>'.
+                    ( $req ? '<span class="required">*</span>' : '' )  .
+                    '<label class="label" for="contact-name">Imię</label></p>';
+
+        if(isset($fields['url']))
+            unset($fields['url']);
+        if(isset($fields['email']))
+            unset($fields['email']);
+
+        return $fields;
+    }
+    add_filter('comment_form_default_fields','modify_comment_form_fields');
+
+
+
+   function wpb_move_comment_field_to_bottom( $fields ) {
+        $comment_field = $fields['comment'];
+        unset( $fields['comment'] );
+        $fields['comment'] = $comment_field;
+        return $fields;
+    }
+    add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom' );
+
+
+
+    function exclude_category_home( $query ) {
+        if ( $query->is_home ) {
+        $query->set( 'cat', '-43' );
+        }
+        return $query;
+        }
+
+     add_filter( 'pre_get_posts', 'exclude_category_home' );
+
+
+
+
+// register the ajax action for authenticated users
+add_action('wp_ajax_products_page_filters', 'products_page_filters');
+
+// register the ajax action for unauthenticated users
+add_action('wp_ajax_nopriv_products_page_filters', 'products_page_filters');
+
+// handle the ajax request
+function products_page_filters() {
+
+    $product_types = $_REQUEST['product_types'];
+    $product_dish_type = $_REQUEST['product_dish_type'];
+    $product_categories = $_REQUEST['product_categories'];
+    $product_occasions = $_REQUEST['product_occasions'];
+
+    $response_html = "";
+
+    if($product_types || $product_dish_type || $product_categories || $product_occasions){
+        $products = get_posts( array(
+            'post_type' => 'products',
+            'post_status' => 'publish',
+            //'fields' => 'ids',
+            'posts_per_page' => -1,
+            'orderby' => 'rand',
+            'order' => 'desc',
+            'tax_query' => array(
+                $product_types ? array('taxonomy' => 'product_types', 'field' => 'slug','terms' => $product_types) : '',
+                $product_dish_type ? array('taxonomy' => 'product_dish_type', 'field' => 'slug', 'terms' => $product_dish_type) : '',
+                $product_categories ?  array('taxonomy' => 'product_categories', 'field' => 'slug', 'terms' => $product_categories) : '',
+                $product_occasions ? array('taxonomy' => 'product_occasions', 'field' => 'slug', 'terms' => $product_occasions) : '',
+            )
+        ));
+    } else{
+        $products = get_posts([
+            'numberposts' => -1,
+            'post_status' => 'publish',
+            'orderby' => 'meta_value_num',
+            'order' => 'desc',
+            'post_type' => 'products'
+        ]);
+    }
+
+    if($products){
+        foreach ($products as $product):
+            $currentLink = get_permalink($product);
+
+            $response_html .='<div class="product__content">';
+                $response_html .='<a href="'. get_permalink($product). '">';
+                    $imageId = get_field('product_options_thumb', $product);
+                    $icon = false;
+                    if ($imageId):
+                        $image = wp_get_attachment_image_url($imageId, $icon);
+
+                        $response_html .='<div class="thumb-item-wrapper">';
+                        $response_html .='<img class="" src="'.$image.'" alt="">';
+
+                                $product_options_extra_label =  get_field('product_options_extra_label', $product);
+                                if ($product_options_extra_label):
+                                $response_html .='<span>'. get_field( 'product_options_extra_label', $product ) .'</span>';
+                                endif;
+                        $response_html .='</div>';
+                    endif;
+                    $response_html .='<h3>'. $product->post_title .'</h3>';
+
+                    $response_html .='<p>'. get_field( 'products_lead', $product ). '</p>';
+                    $response_html .='<a class="read-more-btn" href="'. $currentLink. '">Czytaj więcej</a>';
+                $response_html .='</a>';
+            $response_html .='</div>';
+        endforeach; 
+    } else{
+        $response_html .= '<span class="">'. __('Brak produktów o podanych prametrach').'</span>';
+    }
+
+    wp_send_json_success([
+        "success_msg" => "Success response",
+        "success_data" => json_encode($response_html),
+    ]);
+
+    wp_send_json_error([
+        "error_msg" => "Error response",
+        "error_data" => json_encode($response_html),
+    ]);
+
+    exit;
 }

@@ -1,0 +1,24 @@
+.homepage-news{
+    position: relative;
+    .tomato-homepage{
+        position: absolute;
+        right: 0;
+        bottom: 30%;
+    }
+    &__bg{
+        background: #613a29;
+        height: 270px;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    h2{
+        color: #fff;
+        padding: 83px 0 42px;
+        font-size: 36px;
+        font-family: FiraSans-Bold;
+        &::after{
+            opacity: 0.2;
+        }
+    }
+}

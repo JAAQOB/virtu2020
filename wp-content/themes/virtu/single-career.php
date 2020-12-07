@@ -8,8 +8,20 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/about-us/leaves.png" alt="">
   		    <div class="container">
-			<h2 class="breadcrumbs__h2">Kariera</h2>
-			<?php the_breadcrumb(); ?>
+
+				<div class="breadcrumbs--div">
+					<div class="">
+						<h2 class="breadcrumbs-in__h2">Kariera</h2>
+							<?php the_breadcrumb(); ?>
+						</div>
+						<div class="hover-back-link">
+							<i class="fas fa-angle-left"></i>
+							<?php $back_to_career_link = get_field( 'back_to_career_link', 30 ); ?>
+							<?php if ( $back_to_career_link ) : ?>
+								<a class="returnpage" href="<?php echo esc_url( $back_to_career_link) ; ?>">Wróć do Kariera</a>
+							<?php endif; ?>
+					</div>
+				</div>
 
 			<div class="single-career">
 				<h3><?php the_field( 'career_posts_heading' ); ?></h3>
@@ -29,7 +41,7 @@
 			</div>
 			<?php if ( have_rows( 'benefits' ) ) : ?>
 			<div class="single-career__benefits">
-			<img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/icons/leaf-homepage-top.png" alt="">
+			<img class="lazy lazy-loading leaves-brands" data-src="<?php echo get_template_directory_uri(); ?>/img/icons/basil.png" alt="">
 				<div class="container">
 						<?php while ( have_rows( 'benefits' ) ) : the_row(); ?>
 							<h3><?php the_sub_field( 'benefits_heading' ); ?></h3>
@@ -69,7 +81,7 @@
 									<p><?php the_sub_field( 'send_cv_rodo' ); ?></p>
 								<?php endwhile; ?>
 								<div class="contact-form-div">
-									<?php echo do_shortcode("[contact-form-7 id='5' title='Formularz 1']"); ?>
+									<?php echo do_shortcode('[contact-form-7 id="542" title="Career CV"]'); ?>
 								</div>
 							</div>
 							<img class="lazy lazy-loading career-img-bg" data-src="<?php echo get_template_directory_uri(); ?>/img/icons/career-img-bg.png" alt="">
@@ -92,6 +104,7 @@
 		?>
 		<?php if ( have_rows( 'othere_posts' ) ) : ?>
 			<div class="other_posts career-template ">
+				<img class="lazy lazy-loading rosemar" data-src="<?php echo get_template_directory_uri(); ?>/img/icons/rosemar.png" alt="">
 				<div class="container">
 				<?php while ( have_rows( 'othere_posts' ) ) : the_row(); ?>
 					<h2 class="heading-with-icon"><?php the_sub_field( 'othere_posts_heading' ); ?></h2>
